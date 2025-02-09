@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://i.pinimg.com/736x/85/03/23/85032354fa3a91073d8320a5c7656c3f.jpg');
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff6347; /* Tomato color */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0685/0976/1820/files/b4b_background_low_opacity_30.png?v=1692056873');
+            background-color: #fff ;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Home Page Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .categories {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .categories button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .categories button:hover {
+            background-color: #555;
+        }
+
+        /* Contact Page Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea, button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Page Visibility */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>shutter up</h1>
+        <nav>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="categories">
+                <button onclick="filterGallery('all')">All</button>
+                <button onclick="filterGallery('landscape')">Landscape</button>
+                <button onclick="filterGallery('portrait')">Portrait</button>
+            </div>
+            <div class="gallery">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/026/542/204/small_2x/landscape-natural-beautiful-mountains-and-blue-sky-panorama-photo.jpg" alt="Landscape 1" data-category="landscape">
+                <img src="https://i.pinimg.com/originals/0f/60/9b/0f609b39c0ca4b1412431c22d113a81f.jpg" alt="Portrait 1" data-category="portrait">
+                <img src="https://static.vecteezy.com/system/resources/previews/026/975/619/large_2x/serene-paradise-aesthetic-tropical-beach-with-clean-blue-water-palm-trees-and-relaxing-view-ai-generated-free-photo.jpeg" alt="Landscape 2" data-category="landscape">
+                <img src="https://i1.adis.ws/i/canon/get-inspired-abstract-portrait-photography-2_7bafce1ecb724062b2aceefc6a29809d?$media-collection-full-dt-jpg$" alt="Portrait 2" data-category="portrait">
+                <img src="https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2018/01/Osaka-Castle-Japan-www.istockphoto.com_gb_photo_osaka-castle-osaka-japan-gm474272268-64549069-Ikuni.jpg" alt="Landscape 3" data-category="landscape">
+                 <img src="https://www.adorama.com/alc/wp-content/uploads/2022/05/Brandonwoelfel12.jpg" alt="Portrait 3" data-category="portrait">
+                 <img src="https://i.mdel.net/i/db/2019/2/1074271/1074271-800w.jpg" alt="Portrait 4" data-category="portrait">
+                 <img src="https://i.pinimg.com/736x/a2/2b/5d/a22b5da952652f61639dbb33b7202def.jpg" alt="Landscape 4" data-category="landscape">
+                 <img src="https://i.pinimg.com/236x/b7/c2/d1/b7c2d1f962a28145fe1d1a68cb6b0d80.jpg" alt="Portrait 5" data-category="portrait">
+                 <img src="https://media.architecturaldigest.com/photos/5cb73d75aff84612a4559bfe/master/w_1600%2Cc_limit/View%2520of%2520the%2520Shiseido%2520Forest%2520Valley%2520and%2520HSBC%2520Rain%2520Vortex%2520from%2520Terminal%25201.jpg" alt="Landscape " data-category="landscape">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="container">
+            <h1>About Me</h1>
+            <p>
+                Hi, I'm charishmasri, a photographer with over 3 years of experience in capturing stunning landscapes and expressive portraits. 
+                My passion lies in telling stories through my lens, whether it's the serene beauty of nature or the raw emotions of people. 
+                My work has been featured in numerous exhibitions and publications, and I take pride in delivering high-quality, timeless photographs.
+            </p>
+            <p>
+                I believe that every moment is unique and deserves to be preserved. Whether it's a breathtaking sunset or a candid portrait, 
+                I strive to create images that evoke emotion and leave a lasting impression. Let me help you capture your special moments!
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container">
+            <h1>Contact Me</h1>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle page navigation
+        const pages = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+                if (page.id === pageId) {
+                    page.classList.add('active');
+                }
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('href').substring(1);
+                showPage(pageId);
+            });
+        });
+
+        // Gallery filter function
+        function filterGallery(category) {
+            const images = document.querySelectorAll('.gallery img');
+            images.forEach(img => {
+                if (category === 'all' || img.getAttribute('data-category') === category) {
+                    img.style.display = 'block';
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
